@@ -2,9 +2,9 @@
   "name": "monuments",
   "version": "1.0.0",
   "description": "This app is for comerce work with QR-codes creation on monuents",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [
     "qr",
