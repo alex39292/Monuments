@@ -15,6 +15,6 @@
   "author": "Aliaksandr Danilin",
   "license": "ISC",
   "dependencies": {
-    "googleapis": "^92.0.0"
+    "axios": "^0.26.1"
   }
 }

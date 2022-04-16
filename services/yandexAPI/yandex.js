@@ -1,0 +1,54 @@
+const fs = require('fs');
+const credentials = require('../../configs/y_credentials.json');
+const axios = require('axios').create({
+    baseURL: 'https://cloud-api.yandex.net/v1/disk',
+    headers: { 'Authorization': credentials.TOKEN },
+});
+
+const getURL = async (path, method) => {
+    try {
+        const response = await axios.get(`/resources/${method}?path=${path}`);
+        return response.data.href;
+    } catch(error) {
+        console.log(`Error with getURL() method: ${error}`);
+    }    
+};
+
+module.exports = {
+    getDisk: async () => {
+        try {
+            const response = await axios.get('/');
+            console.log(response.data); 
+        } catch(error) {
+            console.log(`Error with method getDisk(): ${error}`);
+        }
+    },
+    createFolder: async (path) => {
+        try {
+            const response = await axios.put(`/resources?path=${path}`);
+            console.log(response.status);
+        } catch(error) {
+            console.log(`Error with method createFolder(): ${error} `);
+        }
+    },
+    delete: async (path) => {
+        try {
+            const response = await axios.delete(`/resources?path=${path}`);
+            console.log(response.status);
+        } catch(error) {
+            console.log(`Error with method delete(): ${error}`);
+        }
+    },
+    uploadFile: async (path, file_path) => {
+        try {
+            const href = await getURL(path, 'upload');
+            let response = await axios.put(href,  fs.createReadStream(file_path));
+            console.log(response.status);
+        } catch(error) {
+            console.log(`Error with method uploadFile(): ${error}`);
+        }
+    },
+    getFileURL: async (path) => {
+        return await getURL(path, 'download');  
+    }
+};

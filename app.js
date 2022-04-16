@@ -1,8 +1,10 @@
-const googleDriveAPI = require('./services/googleAPI/google_driveAPI');
+const yandex = require('./services/yandexAPI/yandex');
+const yandexDriveAPI = require('./services/yandexAPI/yandex');
 
-const fileName = 'Spider Man.jpg';
-const folderId = '16E5NbwuxbI8LGzKs-CdHmA9RqskMutkx';
+const jpg_file = 'D:/Monuments/resources/bio.txt';
 
-const fileId = googleDriveAPI.delete(folderId);
-
-console.log(fileId);
+//yandexDriveAPI.getDisk();
+//yandexDriveAPI.createFolder('Alex');
+//yandexDriveAPI.delete('Spider Man.jpg');
+yandexDriveAPI.uploadFile('Alex/bio.txt', jpg_file);
+yandexDriveAPI.getFileURL('Alex/Spider Man.jpg').then(url => console.log(url));
