@@ -1,10 +1,29 @@
-const yandex = require('./services/yandexAPI/yandex');
-const yandexDriveAPI = require('./services/yandexAPI/yandex');
+const service = require('./services/service');
+const credentials = require('./configs/user');
+const express = require('express');
+const app = express();
+const es6Renderer = require('express-es6-template-engine');
+app.use(express.urlencoded({
+  extended: true
+}));
 
-const jpg_file = 'D:/Monuments/resources/bio.txt';
+app.engine('html', es6Renderer);
+app.set('views', './views');
+app.set('view engine', 'html');
+app.use(express.static(__dirname + '/views'));
 
-//yandexDriveAPI.getDisk();
-//yandexDriveAPI.createFolder('Alex');
-//yandexDriveAPI.delete('Spider Man.jpg');
-yandexDriveAPI.uploadFile('Alex/bio.txt', jpg_file);
-yandexDriveAPI.getFileURL('Alex/Spider Man.jpg').then(url => console.log(url));
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
+app.post('/', (req, res) => {
+  if (req.body.userName === credentials.userName & req.body.password === credentials.password) {
+    res.render('admin');
+  } else {
+    res.render('index');
+  }
+});
+
+app.listen(5000, () => {
+    console.log(`App listening on port 5000`)
+})
