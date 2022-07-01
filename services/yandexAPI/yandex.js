@@ -27,6 +27,7 @@ module.exports = {
         try {
             const response = await axios.put(`/resources?path=${path}`);
             console.log(response.status);
+            return response.status;
         } catch(error) {
             console.log(`Error with method createFolder(): ${error} `);
         }
@@ -50,5 +51,13 @@ module.exports = {
     },
     getFileURL: async (path) => {
         return await getURL(path, 'download');  
+    },
+    getFilesFrom: async (path) => {
+        const response = await axios.get(`/resources?path=${path}`);
+        const files = []; 
+        response.data._embedded.items.forEach(file => {
+            files.push({ name: file.name, file: file.file })
+        });
+        return files;
     }
 };
