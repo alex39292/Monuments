@@ -1,0 +1,90 @@
+@font-face {
+  font-family: Roboto;
+  src: url('../fonts/Roboto-Medium.ttf');
+}
+body {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background: url(../resources/f381f6a5be5a.jpg) #acbfba;
+    background-size: 100%;
+  }
+  h4 {
+    margin-top: 5px;
+    color: red;
+  }
+  p {
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    text-shadow: #FC0 1px 0 10px;
+  }
+  .form {
+    border-radius: 1em;
+    position: relative;
+    max-width: 450px;
+    padding: 20px 50px;
+    margin: 20px auto 0;
+    background-color: grey;
+    background-size: cover;
+    box-shadow: 10px 15px 20px 6px black;
+  }
+  .form:before {
+    border-radius: 1em;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right bottom, #303137, #8b8ca1);
+  }
+  fieldset {
+    padding-right: 10%;
+    position: relative;
+  }
+  h3 {
+    position: relative;
+    margin-top: 0;
+    color: white;
+    font-weight: 300;
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+  h3:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 60px;
+  }
+  label {
+    display: block;
+    padding-left: 15px;
+    color: rgba(255, 255, 255, .6);
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  input {
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    padding: 0 15px;
+    margin: 10px 0 15px;
+    border-width: 0;
+    line-height: 40px;
+    border-radius: 20px;
+    color: white;
+    background: rgba(255, 255, 255, .2);
+  }
+  input[type="submit"] {
+    width: 50%;
+    background: #1762EE;
+  }
+  input[type="submit"]:hover, input[type="submit"]:focus {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+    color: #fff;
+    outline: 0;
+  }
+  

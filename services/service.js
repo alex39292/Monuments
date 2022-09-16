@@ -1,9 +1,6 @@
-const yandex = require('./yandexAPI/yandex');
 const yandexDriveAPI = require('./yandexAPI/yandex');
 const pg = require('./postgres/postgres');
 const { client, turnConnection } = require('./postgres/postgres');
-
-const jpg_file = 'D:/Monuments/resources/bio.txt';
 
 //yandexDriveAPI.getDisk();
 //yandexDriveAPI.createFolder('Alexx');
@@ -26,7 +23,7 @@ module.exports = {
                 await turnConnection();
                 const res = await client.query(text, values);
                 await client.end();
-                console.log(res.rows[0]);
+                console.log(`Folder is created with status: ${res.rows[0]}`);
               } catch (error) {
                 console.log(error.stack);
               }

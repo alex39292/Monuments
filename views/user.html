@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Aliaksandr Danilin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/user.css">
+    <script src="./script.js"></script>
+    <script src=${apiKey}></script>
+    ${ymaps}
+    <title>Виртуальный памятник</title>
+  </head>
+  <body>
+    <header>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Связаться со мной
+        </button>
+        <div class="dropdown-content">
+          <a href="tel:+375291844074"><img src="resources/telephone.svg"> Позвонить</a><br>
+          <a href="https://instagram.com/monumentsdosp"><img src="resources/instagram.svg"> Instagram</a><br>
+          <a href="viber://chat?number=375291443177"><img src="resources/viber.svg" height="20px"> Viber</a><br>
+          <a href="https://ok.ru/profile/581677765225"><img src="resources/ok-ru.svg" height="20px"> OK.ru</a>
+        </div>
+      </div>
+      <button class="about" onclick="location.href='#'">Обо мне
+      </button>
+      <p class="header">
+        QR коды на памятники
+      </p>
+      <div class="square-logo">
+        <img src="resources/background.jpg" alt="MonumentsDosp" class="logo">
+      </div>
+    </header>
+    <main>
+      <div class="square">
+        <img src=${mainPhoto} alt="Фото" class="main-photo">
+      </div>
+      <div class="name">
+        <h1 id="name">${name}</h1>
+      </div>
+      <div class="years">
+        <div>
+          <h2>
+            <time datetime="DD-MM-YYYY" id="birthday">${birth_date}</time> - <time id="deathday">${death_date}</time>
+          </h2>
+        </div>
+      </div>
+      <div class="epitafia">
+        <h3 id="epitafia">${text_epitafia}</h3>
+      </div>
+    </main>
+    <section class="section">
+      <nav class="navigation">
+        <button id="imagesBtn" onclick="btnClick(0)">Фотографии</button>
+        <button id="textBtn" onclick="btnClick(1)">Некролог</button>
+        <button id="coordinatesBtn" onclick="btnClick(2)">Местонахождение</button>
+      </nav>
+      <figure id="images">
+        ${listOfPhoto.map(file => `
+          <a href="${file.file}" target="_blank"><img src="${file.file}"></a>`
+          ).join('')}
+      </figure>
+      <div id="nekrolog">
+        <p>${textFile}</p>
+      </div>
+      <div id="coordinates">
+        <figure id="map">
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>

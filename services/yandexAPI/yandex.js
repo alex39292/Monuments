@@ -26,7 +26,7 @@ module.exports = {
     createFolder: async (path) => {
         try {
             const response = await axios.put(`/resources?path=${path}`);
-            console.log(response.status);
+            console.log(`Folder is created with status ${response.status}`);
             return response.status;
         } catch(error) {
             console.log(`Error with method createFolder(): ${error} `);
@@ -44,7 +44,7 @@ module.exports = {
         try {
             const href = await getURL(path, 'upload');
             let response = await axios.put(href,  fs.createReadStream(file_path));
-            console.log(response.status);
+            console.log(`File ${file_path} is uploaded with status ${response.status}`);
         } catch(error) {
             console.log(`Error with method uploadFile(): ${error}`);
         }

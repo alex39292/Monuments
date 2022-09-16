@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Aliaksandr Danilin">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/login.css">
+        <title>Вход администратора</title>
+    </head>
+    <body>
+        <p>Приложение QR коды на памятники</p>
+        <form class="form" method="post" name="login" action="">
+            <fieldset>
+                <legend><h3>Вход для администратора</h3></legend>
+                    <label for="password">Введите пароль</label>
+                    <h4>${errorMessage}</h4>
+                    <input type="password" id="password" name="password" autofocus required>
+                    <label for="submit"></label>
+                    <input type="submit" id="submit" value="Войти">
+            </fieldset>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Aliaksandr Danilin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/create.css">
+    <script src="./script.js"></script>
+    <title>Создание памятника</title>
+</head>
+<body>
+  <form class="form" method="post" name="create" action="" enctype="multipart/form-data">
+    <fieldset>
+      <legend><h3>Создание нового QR кода</h3></legend>
+      <label for="name">Фамилия Имя Отчество</label>
+      <input type="text" id="name" name="name" autofocus placeholder="Фамилия Имя Отчество" size="30" maxlength="30" required>
+      <label for="birth-date">Дата рождения</label>
+      <input type="date" id="birth-date" name="birth_date" placeholder="12.12.1900">
+      <label for="death-date">Дата смерти</label>
+      <input type="date" id="death-date" name="death_date" placeholder="12.12.1990">
+      <label for="image">Основное фото</label>
+      <input type="file" id="image" name="main_image" accept="image/jpeg" onchange="preview(event)" required>
+      <img id="frame" src="" class="img-fluid"/>
+      <label for="text-epitafia">Эпитафия</label>
+      <textarea rows="6" cols="60" id="text-epitafia" name="text_epitafia" placeholder="Помним, любим, скорбим." ></textarea>
+      <label for="text-nekrolog">Файл некролога</label>
+      <input type="file" id="text-nekrolog" name="text_nekrolog" accept=".doc, .docx">
+      <label for="images">Другие фото</label>
+      <input type="file" id="images" name="list_images" accept="image/jpeg" multiple>
+      <label for="coordinates">Координаты</label>
+      <input type="text" id="coordinates" name="coordinates" maxlength="21">
+      <label for="submit"></label>
+      <input type="submit" id="submit" name="submit" value="Создать">
+    </fieldset>
+  </form>
+</body>
+</html>
