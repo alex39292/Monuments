@@ -4,7 +4,7 @@
   "description": "This app is for comerce work with QR-codes creation on monuents",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [
     "qr",
