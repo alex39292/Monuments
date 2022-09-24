@@ -6,7 +6,7 @@ const sha1 = require('sha1');
 const ymaps = require('../ymaps');
 const userDB = require('../postgres/userDB');
 const yandexDriveAPI = require('../yandexAPI/yandex');
-const apiKey = require('../../configs/y_credentials.json').API_KEY;
+const apiKey = require('../../configs/y_credentials').API_KEY;
 
 module.exports = {
     renderUser: async (req, res) => {
