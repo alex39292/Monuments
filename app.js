@@ -5,8 +5,11 @@ const pg = require('./services/postgres/postgres');
 let session;
 pg.turnConnection();
 
-app.route('/')
-  .get((req, res) => {
+app.get('/', (req, res) => {
+  res.send('helloe');
+})
+//app.route('/')
+//  .get((req, res) => {
     session = req.session;
     if (session.user) {
       res.render('admin');
@@ -17,8 +20,8 @@ app.route('/')
         }
       });
     }
-  })
-  .post(async (req, res) => {
+//  })
+//  .post(async (req, res) => {
     if (req.session.user) {
       if (req.body.create) {
         res.render('create');
@@ -46,7 +49,7 @@ app.route('/')
           errorMessage: 'Пожалуйста зарегистрируйтесь!'
         }});
     }
-});
+//});
 
 app.route('/:userId(\\w+\)')
 .get(async (req, res) => {
