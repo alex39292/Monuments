@@ -1,4 +1,4 @@
 module.exports = {
-    secret: 'thisismysecrctekeyfhrgfgrfrty84fwir767',
-    password: '12345',
+    secret: process.env.user_secret,
+    password: process.env.user_password,
 }

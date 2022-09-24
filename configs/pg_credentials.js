@@ -1,5 +1,6 @@
 module.exports = {
-    connectionString: 'postgresql://postgres:postgres@localhost:5432/monuments',
+    connectionString: process.env.DATABASE_URL
+    //'postgresql://postgres:postgres@localhost:5432/monuments',
     //ssl: {
     //    rejectUnauthorized: false
     //}

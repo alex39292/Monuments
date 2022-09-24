@@ -1,5 +1,5 @@
 const fs = require('fs');
-const credentials = require('../../configs/y_credentials.json');
+const credentials = require('../../configs/y_credentials');
 const axios = require('axios').create({
     baseURL: 'https://cloud-api.yandex.net/v1/disk',
     headers: { 'Authorization': credentials.TOKEN },
