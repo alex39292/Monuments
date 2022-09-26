@@ -5,9 +5,6 @@ const pg = require('./services/postgres/postgres');
 let session;
 pg.turnConnection();
 
-app.get('/', (req, res) => {
-  res.send('helloe');
-})
 app.route('/')
   .get((req, res) => {
     session = req.session;
